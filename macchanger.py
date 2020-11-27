@@ -7,12 +7,10 @@ except KeyboardInterrupt:
 import pyfiglet
 import time
 import argparse
-import re
 try:
     subprocess.run('clear', shell=True)
 except KeyboardInterrupt:
     print('\n[-] You interrupted the program')
-# start = pyfiglet.figlet_format('MAC changer\nLinux only', font='slant')
 print(pyfiglet.figlet_format('\tMAC-Changer', font='slant'))
 print('='*50)
 print('\t[+] Mac changer for LINUX ONLY')
@@ -112,9 +110,3 @@ except:
 
 
 
-
-# HW
-# what are the methods of the agressive national
-#
-# pg 112
-# they critisized till last....i shall have it
