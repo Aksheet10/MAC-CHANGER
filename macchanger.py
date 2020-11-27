@@ -6,7 +6,6 @@ except KeyboardInterrupt:
     print('[-] You quit the installation')
 import pyfiglet
 import time
-import argparse
 try:
     subprocess.run('clear', shell=True)
 except KeyboardInterrupt:
