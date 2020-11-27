@@ -10,7 +10,7 @@ try:
     subprocess.run('clear', shell=True)
 except KeyboardInterrupt:
     print('\n[-] You interrupted the program')
-print(pyfiglet.figlet_format('\tMAC-Changer', font='slant'))
+print(pyfiglet.figlet_format('MAC-Changer', font='slant'))
 print('='*50)
 print('\t[+] Mac changer for LINUX ONLY')
 print('\t[+] Built on 20 October 2020')
