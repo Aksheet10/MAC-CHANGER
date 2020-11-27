@@ -1,7 +1,8 @@
 # MAC-CHANGER
 This is a mac changer for Linux
 
-REQUIREMENTS:
+# REQUIREMENTS:
+
 Python3 should be installed
 
 sudo apt install python3
