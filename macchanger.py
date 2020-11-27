@@ -1,0 +1,120 @@
+#!/usr/bin/env python3
+import subprocess
+try:
+    subprocess.run('sudo apt install python3-pyfiglet', shell=True)
+except KeyboardInterrupt:
+    print('[-] You quit the installation')
+import pyfiglet
+import time
+import argparse
+import re
+try:
+    subprocess.run('clear', shell=True)
+except KeyboardInterrupt:
+    print('\n[-] You interrupted the program')
+# start = pyfiglet.figlet_format('MAC changer\nLinux only', font='slant')
+print(pyfiglet.figlet_format('\tMAC-Changer', font='slant'))
+print('='*50)
+print('\t[+] Mac changer for LINUX ONLY')
+print('\t[+] Built on 20 October 2020')
+print('\t[+] Built by Aksheet')
+print('='*50 + '\n\n')
+
+
+def chk_inter():
+    #  program to check for interface
+    chk = input('Do you want to check interfaces? (y/n): ')
+    if 'y' in chk:
+        subprocess.run(['ifconfig'])
+    elif 'n' in chk:
+        print('Lets assume you know the interface :)')
+        pass
+    else:
+        print('Please enter "y" or "n"')
+        chk_inter()
+
+
+def change():
+    #  program to change MAC address
+    time.sleep(3)  # sleep for 3 seconds
+    chk_inter()
+    sel_inter = input('\n[+] Please enter a interface(eg:eth0): ')  # interface input
+    mac_change = input('[+] Enter the new MAC (ff:ff:ff:ff:ff:ff) Start with 00. \nExample >> 00:11:22:33:44:55 \n>> ')
+
+    subprocess.run('sudo ifconfig ' + sel_inter + ' down', shell=True)
+    subprocess.run('sudo ifconfig ' + sel_inter + ' hw' + ' ether ' + mac_change, shell=True)
+    subprocess.run('sudo ifconfig ' + sel_inter + ' up', shell=True)
+    time.sleep(1)
+    print("\n[+] MAC for " + sel_inter + " changed successfully to " + mac_change)
+
+    def check():
+        chk_res = input('\nDo you want to check the MAC for ' + sel_inter + '? (y/n): ')
+        time.sleep(1)
+        if 'y' in chk_res:
+            print('\n')
+            subprocess.run('ifconfig ' + sel_inter + '\n', shell=True)
+        elif 'n' in chk_res:
+            print('\nWhatever\n')
+        else:
+            print('Please enter "y" or "n"')
+            check()
+    check()
+
+    def restore():
+        ask = input('Do you want to restore the MAC address of ur interface (r) or exit (e) (r/e)?: ')
+        time.sleep(1)
+        if 'r' in ask:
+
+            def rmc():
+                conf = input('\nDo you want to restore MAC (y/n): ')
+                time.sleep(1)
+                if 'y' in conf:
+                    subprocess.run(f'ifconfig {sel_inter} down', shell=True)
+                    subprocess.run(f'macchanger -p {sel_inter}', shell=True)
+                    subprocess.run(f'ifconfig {sel_inter} up', shell=True)
+
+                    print('\n[+] MAC restored')
+
+                elif 'n' in conf:
+                    def not_change():
+                        print('\n[-] Not changing MAC address ')
+                        time.sleep(1)
+                        cn = input('\nDo you want to check if MAC changed or not? (y/n)?: ')
+                        print('\n')
+                        time.sleep(1)
+                        if 'y' in cn:
+                            print('\n')
+                            subprocess.run(f'ifconfig {sel_inter}', shell=True)
+                        elif 'n' in cn:
+                            print('\nMAC did not restore :) ')
+                        else:
+                            print('Please enter "y" or "n"')
+                            not_change()
+                    not_change()
+
+                else:
+                    print('Please enter "y" or "n"')
+                    rmc()
+            rmc()
+
+        elif 'e' in ask:
+            print('\n[-] Exiting\n')
+        else:
+            print('Please enter "r" or "e"')
+            restore()
+    restore()
+
+
+try:
+    change()
+except:
+    print('\n[-] You quit the program :(\n')
+
+
+
+
+# HW
+# what are the methods of the agressive national
+#
+# pg 112
+# they critisized till last....i shall have it
