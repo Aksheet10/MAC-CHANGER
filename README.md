@@ -3,7 +3,8 @@ This is a mac changer for Linux
 
 REQUIREMENTS:
 Python3 should be installed
-p
+
+sudo apt install python3
 
 # USAGE:
 git clone https://github.com/Aksheet10/MAC-CHANGER.git
