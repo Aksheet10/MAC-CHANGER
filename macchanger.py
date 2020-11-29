@@ -53,7 +53,7 @@ def change():
             print('\n')
             os.system('ifconfig ' + sel_inter + '\n')
         elif 'n' in chk_res:
-            print('\nWhatever\n')
+            print('\nSure\n')
         else:
             print('Please enter "y" or "n"')
             check()
