@@ -1,13 +1,15 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 import subprocess
+import os
 try:
-    subprocess.run('sudo apt install python3-pyfiglet', shell=True)
+    import pyfiglet
+except:
+    os.system("pip3 install pyfiglet")
 except KeyboardInterrupt:
-    print('[-] You quit the installation')
-import pyfiglet
+    print("[ERR] Caught Keyboard Interrupt. Exitting... [ERR]")
 import time
 try:
-    subprocess.run('clear', shell=True)
+    os.system('clear')
 except KeyboardInterrupt:
     print('\n[-] You interrupted the program')
 print(pyfiglet.figlet_format('MAC-Changer', font='slant'))
@@ -22,7 +24,7 @@ def chk_inter():
     #  program to check for interface
     chk = input('Do you want to check interfaces? (y/n): ')
     if 'y' in chk:
-        subprocess.run(['ifconfig'])
+        subprocess.run(['ifconfig'], shell=True)
     elif 'n' in chk:
         print('Lets assume you know the interface :)')
         pass
@@ -38,9 +40,9 @@ def change():
     sel_inter = input('\n[+] Please enter a interface(eg:eth0): ')  # interface input
     mac_change = input('[+] Enter the new MAC (ff:ff:ff:ff:ff:ff) Start with 00. \nExample >> 00:11:22:33:44:55 \n>> ')
 
-    subprocess.run('sudo ifconfig ' + sel_inter + ' down', shell=True)
-    subprocess.run('sudo ifconfig ' + sel_inter + ' hw' + ' ether ' + mac_change, shell=True)
-    subprocess.run('sudo ifconfig ' + sel_inter + ' up', shell=True)
+    os.system('sudo ifconfig ' + sel_inter + ' down')
+    os.system('sudo ifconfig ' + sel_inter + ' hw' + ' ether ' + mac_change)
+    os.system('sudo ifconfig ' + sel_inter + ' up')
     time.sleep(1)
     print("\n[+] MAC for " + sel_inter + " changed successfully to " + mac_change)
 
@@ -49,7 +51,7 @@ def change():
         time.sleep(1)
         if 'y' in chk_res:
             print('\n')
-            subprocess.run('ifconfig ' + sel_inter + '\n', shell=True)
+            os.system('ifconfig ' + sel_inter + '\n')
         elif 'n' in chk_res:
             print('\nWhatever\n')
         else:
@@ -66,9 +68,9 @@ def change():
                 conf = input('\nDo you want to restore MAC (y/n): ')
                 time.sleep(1)
                 if 'y' in conf:
-                    subprocess.run(f'ifconfig {sel_inter} down', shell=True)
-                    subprocess.run(f'macchanger -p {sel_inter}', shell=True)
-                    subprocess.run(f'ifconfig {sel_inter} up', shell=True)
+                    os.system(f'ifconfig {sel_inter} down')
+                    os.system(f'macchanger -p {sel_inter}')
+                    os.system(f'ifconfig {sel_inter} up')
 
                     print('\n[+] MAC restored')
 
@@ -81,7 +83,7 @@ def change():
                         time.sleep(1)
                         if 'y' in cn:
                             print('\n')
-                            subprocess.run(f'ifconfig {sel_inter}', shell=True)
+                            os.system(f'ifconfig {sel_inter}')
                         elif 'n' in cn:
                             print('\nMAC did not restore :) ')
                         else:
@@ -106,6 +108,3 @@ try:
     change()
 except:
     print('\n[-] You quit the program :(\n')
-
-
-
