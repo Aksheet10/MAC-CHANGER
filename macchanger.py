@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import subprocess
 import os
 try:
     import pyfiglet
@@ -7,12 +6,18 @@ except:
     os.system("pip3 install pyfiglet")
 except KeyboardInterrupt:
     print("[ERR] Caught Keyboard Interrupt. Exitting... [ERR]")
+try:
+    import termcolor
+    
+except:
+    os.system('pip3 install termcolor')
+from termcolor import colored
 import time
 try:
     os.system('clear')
 except KeyboardInterrupt:
     print('\n[-] You interrupted the program')
-print(pyfiglet.figlet_format('MAC-Changer', font='slant'))
+print((colored(pyfiglet.figlet_format('MAC-Changer', font='slant'), color='green')))
 print('='*50)
 print('\t[+] Mac changer for LINUX ONLY')
 print('\t[+] Built on 20 October 2020')
@@ -24,7 +29,7 @@ def chk_inter():
     #  program to check for interface
     chk = input('Do you want to check interfaces? (y/n): ')
     if 'y' in chk:
-        subprocess.run(['ifconfig'], shell=True)
+        os.system(['ifconfig'], shell=True)
     elif 'n' in chk:
         print('Lets assume you know the interface :)')
         pass
