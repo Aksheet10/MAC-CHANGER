@@ -8,7 +8,7 @@ Python3 should be installed:
 ```sudo apt install python3```
 
 # USAGE:
-```bash
+```
 git clone https://github.com/Aksheet10/MAC-CHANGER.git
 
 cd MAC-CHANGER
