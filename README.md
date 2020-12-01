@@ -5,7 +5,7 @@ This is a mac changer for Linux
 
 Python3 should be installed:
 
-sudo apt install python3
+```sudo apt install python3```
 
 # USAGE:
 ```bash
