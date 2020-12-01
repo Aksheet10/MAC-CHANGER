@@ -3,7 +3,7 @@ This is a mac changer for Linux
 
 # REQUIREMENTS:
 
-**Python3 should be installed:
+**Python3 should be installed:**
 
 ```sudo apt install python3```
 
