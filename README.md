@@ -12,6 +12,7 @@ This is a mac changer for Linux
 ```git clone https://github.com/Aksheet10/MAC-CHANGER.git```
 
 ```cd MAC-CHANGER```
+
 ```sudo python3 macchanger.py```
 ### RUN THR SCRIPT AS ROOT OR SUDO
 It will install pyfiglet so give it some time
