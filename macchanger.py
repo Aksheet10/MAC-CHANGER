@@ -26,9 +26,9 @@ print((colored('='*50 + '\n\n', color='green')))
 def chk_inter():
     #  program to check for interface
     chk = input((colored('Do you want to check interfaces? (y/n): ',  color='green')))
-    if 'y' in chk:
+    if chk == 'y:
         os.system('ifconfig')
-    elif 'n' in chk:
+    elif chk == 'n':
         print((colored('Lets assume you know the interface :)',  color='green')))
         pass
     else:
@@ -52,10 +52,10 @@ def change():
     def check():
         chk_res = input((colored('\nDo you want to check the MAC for ' + sel_inter + '? (y/n): ',  color='green')))
         time.sleep(1)
-        if 'y' in chk_res:
+        if chk_res == 'y:
             print('\n')
             os.system('ifconfig ' + sel_inter + '\n')
-        elif 'n' in chk_res:
+        elif chk_res == 'n':
             print((colored('\nNot checking MAC address\n',  color='green')))
         else:
             print((colored('Please enter "y" or "n"',  color='red')))
@@ -65,29 +65,29 @@ def change():
     def restore():
         ask = input((colored('Do you want to restore the MAC address of ur interface (r) or exit (e) (r/e)?: ',  color='green')))
         time.sleep(1)
-        if 'r' in ask:
+        if ask == 'r':
 
             def rmc():
                 conf = input((colored('\nDo you want to restore MAC (y/n): ',  color='green')))
                 time.sleep(1)
-                if 'y' in conf:
+                if conf == 'y':
                     os.system(f'ifconfig {sel_inter} down')
                     os.system(f'macchanger -p {sel_inter}')
                     os.system(f'ifconfig {sel_inter} up')
 
                     print((colored('\n[+] MAC restored',  color='green')))
 
-                elif 'n' in conf:
+                elif conf == 'n':
                     def not_change():
                         print((colored('\n[-] Not changing MAC address',  color='green')))
                         time.sleep(1)
                         cn = input((colored('\nDo you want to check if MAC changed or not? (y/n)?: ',  color='green')))
                         print('\n')
                         time.sleep(1)
-                        if 'y' in cn:
+                        if cn == 'y':
                             print('\n')
                             os.system(f'ifconfig {sel_inter}')
-                        elif 'n' in cn:
+                        elif cn == 'n':
                             print((colored('\nMAC did not restore :) ',  color='green')))
                         else:
                             print((colored('Please enter "y" or "n"',  color='red')))
@@ -99,7 +99,7 @@ def change():
                     rmc()
             rmc()
 
-        elif 'e' in ask:
+        elif ask == 'e':
             print((colored('\n[-] Exiting\n',  color='red')))
         else:
             print(colored('Please enter "r" or "e"',  color='red'))
