@@ -29,10 +29,10 @@ def chk_inter():
     if chk == 'y:
         os.system('ifconfig')
     elif chk == 'n':
-        print((colored('Lets assume you know the interface :)',  color='green')))
+        print((colored('Lets assume you know the interface :)\n',  color='green')))
         pass
     else:
-        print((colored('Please enter "y" or "n"',  color='red')))
+        print((colored('Please enter "y" or "n"\n',  color='red')))
         chk_inter()
 
 
@@ -63,7 +63,7 @@ def change():
     check()
 
     def restore():
-        ask = input((colored('Do you want to restore the MAC address of ur interface (r) or exit (e) (r/e)?: ',  color='green')))
+        ask = input((colored('\nDo you want to restore the MAC address of ur interface (r) or exit (e) (r/e)?: ',  color='green')))
         time.sleep(1)
         if ask == 'r':
 
