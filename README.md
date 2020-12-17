@@ -1,5 +1,5 @@
 # MAC-CHANGER
-This is a mac changer for Linux
+This is a MAC CHANGER for Linux
 
 
 # REQUIREMENTS:
