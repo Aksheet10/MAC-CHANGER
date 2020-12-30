@@ -26,7 +26,7 @@ print((colored('='*50 + '\n\n', color='green')))
 def chk_inter():
     #  program to check for interface
     chk = input((colored('Do you want to check interfaces? (y/n): ',  color='green')))
-    if chk == 'y:
+    if chk == 'y':
         os.system('ifconfig')
     elif chk == 'n':
         print((colored('Lets assume you know the interface :)\n',  color='green')))
