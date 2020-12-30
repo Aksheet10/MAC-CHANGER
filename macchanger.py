@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 import os
 try:
-    os.system("pip3 install pyfiglet")
+    os.system("sudo apt install pyfiglet-python3")
     import pyfiglet
 except KeyboardInterrupt:
-    print("[ERR] Caught Keyboard Interrupt. Exiting... [ERR]")
+    print("[ERR] Caught Keyboard Interrupt. Exitting... [ERR]")
 try:
     import termcolor
 except:
-    os.system('pip3 install termcolor')
+    os.system('sudo apt install termcolor')
 from termcolor import colored
 import time
 try:
