@@ -52,7 +52,7 @@ def change():
     def check():
         chk_res = input((colored('\nDo you want to check the MAC for ' + sel_inter + '? (y/n): ',  color='green')))
         time.sleep(1)
-        if chk_res == 'y:
+        if chk_res == 'y':
             print('\n')
             os.system('ifconfig ' + sel_inter + '\n')
         elif chk_res == 'n':
