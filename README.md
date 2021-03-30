@@ -15,7 +15,7 @@ This is a MAC CHANGER for Linux
 
 ```sudo python3 macchanger.py```
 ### RUN THE SCRIPT AS ROOT OR SUDO
-It will install pyfiglet so give it some time
+It will install `pyfiglet` so give it some time
 if it is already installed good
 else let it install
 after installation it will work
